@@ -1,0 +1,24 @@
+import cx_Oracle
+
+conndb = cx_Oracle.connect('user/password@dsn')
+print("Oracle Version: {} \n".format(conndb.version))
+cur = conndb.cursor()
+cur.execute("select * from dgsgames")
+for result in cur:
+    print(result)
+cur.execute("select * from dgsgames where gameid = 'SECONDCHANCE'")
+for result in cur:
+    print("\n{}".format(result))
+cur.close()
+conndb.close()
+
+# Parsing JSON from request
+# data["maps"][0]["id"]
+# data["masks"]["id"]
+# data["om_points"]
+
+import json
+from pprint import pprint
+
+# data = json.load(open('data.json'))
+# pprint(data)
