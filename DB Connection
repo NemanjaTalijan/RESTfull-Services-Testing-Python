@@ -3,10 +3,10 @@ import cx_Oracle
 conndb = cx_Oracle.connect('user/password@dsn')
 print("Oracle Version: {} \n".format(conndb.version))
 cur = conndb.cursor()
-cur.execute("select * from dgsgames")
+cur.execute("select * from tableName")
 for result in cur:
     print(result)
-cur.execute("select * from dgsgames where gameid = 'SECONDCHANCE'")
+cur.execute("select * from tableName where columnName = 'NAME'")
 for result in cur:
     print("\n{}".format(result))
 cur.close()
